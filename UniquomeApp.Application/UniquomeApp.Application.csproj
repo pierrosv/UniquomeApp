@@ -14,4 +14,8 @@
     <PackageReference Include="RestSharp" Version="108.0.1" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\UniquomeApp.Domain\UniquomeApp.Domain.csproj" />
+  </ItemGroup>
+
 </Project>
