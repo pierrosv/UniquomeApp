@@ -31,11 +31,4 @@
             return new ActionResult(false, -1, errors);
         }
     }
-
-    public class DbOptions
-    {
-        public string DbProvider { get; set; }
-        public string MainConnectionString { get; set; }
-        public string SecurityConnectionString { get; set; }
-    }
 }

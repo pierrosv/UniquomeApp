@@ -8,8 +8,12 @@ namespace UniquomeApp.Application.ApplicationUsers.Commands;
 
 public class CreateApplicationUserCommand : IRequest<long>, IMapTo<ApplicationUser>
 {
-    public string Name { get; set; } = default!;
-    public string Description { get; set; } = default!;
+    public string Email { get; set; } = default!;
+    public string FirstName { get; set; } = default!;
+    public string LastName { get; set; } = default!;
+    public string? Institution { get; set; }
+    public string? Position { get; set; }
+    public string? Country { get; set; }
     internal class CreateApplicationUserHandler : IRequestHandler<CreateApplicationUserCommand, long>
     {
         private readonly IRepositoryBase<ApplicationUser> _repo;

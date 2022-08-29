@@ -17,11 +17,11 @@ namespace UniquomeApp.Application.ApplicationUsers.Queries
 
         internal class GetApplicationUserByEmailHandler : IRequestHandler<GetApplicationUserByEmailDetailQuery, ApplicationUserVm>
         {
-            private readonly IUniquomeExtendedRepository<ApplicationUser> _repo;
+            private readonly IUniquomeExtendedRepository<ApplicationUser?> _repo;
             private readonly IMapper _mapper;
 
             public GetApplicationUserByEmailHandler(
-                IUniquomeExtendedRepository<ApplicationUser> repo, 
+                IUniquomeExtendedRepository<ApplicationUser?> repo, 
                 IMapper mapper)
             {
                 _repo = repo;

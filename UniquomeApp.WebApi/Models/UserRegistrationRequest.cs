@@ -10,7 +10,9 @@ namespace UniquomeApp.WebApi.Models
         public string ConfirmPassword { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
-        public string MobilePhone { get; set; }
-        public string WorkPhone { get; set; }
+        public string? Institution { get; set; }
+        public string? Position { get; set; }
+        public string? Country { get; set; }
+        
     }
 }

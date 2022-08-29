@@ -15,10 +15,14 @@ namespace UniquomeApp.Infrastructure.Security
     {
         public static IServiceCollection AddTokenAuthentication(this IServiceCollection services, IConfiguration config)
         {
-            var dbOptions = new DbOptions();
-            config.GetSection(nameof(DbOptions)).Bind(dbOptions);
+            var dbConnections = new List<DbConnectionOptions>();
+            config.GetSection("DbConnections").Bind(dbConnections);
+            if (!dbConnections.Any()) throw new Exception("Unable to get DB Connections");
 
-            services.AddDbContext<UniquomeIdentityDbContext, UniquomeIdentityPostgresqlDbContext>(options => options.UseNpgsql(dbOptions.SecurityConnectionString));
+            var dbOptions = dbConnections.FirstOrDefault(x => x.Name == "Main");
+            if (dbOptions == null) throw new Exception("Unable to get Main DB Connection");
+
+            services.AddDbContext<UniquomeIdentityDbContext, UniquomeIdentityPostgresqlDbContext>(options => options.UseNpgsql(dbOptions.ConnectionString));
             services.AddDefaultIdentity<ApplicationUser>(options => options.SignIn.RequireConfirmedAccount = true).AddRoles<IdentityRole>().AddEntityFrameworkStores<UniquomeIdentityDbContext>();
             // services.AddIdentity<IdentityUser, IdentityRole>().AddEntityFrameworkStores<UniquomeIdentityDbContext>().AddDefaultTokenProviders();
             // services.AddScoped<IUserService, IdentityService>();
