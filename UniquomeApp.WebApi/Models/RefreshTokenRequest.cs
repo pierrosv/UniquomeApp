@@ -1,8 +1,7 @@
-﻿namespace UniquomeApp.WebApi.Models
+﻿namespace UniquomeApp.WebApi.Models;
+
+public class RefreshTokenRequest
 {
-    public class RefreshTokenRequest
-    {
-        public string Token { get; set; }
-        public string RefreshToken { get; set; }
-    }
+    public string Token { get; set; }
+    public string RefreshToken { get; set; }
 }

@@ -1,7 +1,6 @@
-﻿namespace UniquomeApp.WebApi.Models
+﻿namespace UniquomeApp.WebApi.Models;
+
+public class JsonRequestSimple
 {
-    public class JsonRequestSimple
-    {
-        public string Data { get; set; }
-    }
+    public string Data { get; set; }
 }

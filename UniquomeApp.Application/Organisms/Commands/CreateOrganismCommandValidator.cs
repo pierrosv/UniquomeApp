@@ -1,9 +1,4 @@
-﻿using Ardalis.Specification;
-using FluentValidation;
-using UniquomeApp.Domain;
-using UniquomeApp.SharedKernel;
-
-namespace UniquomeApp.Application.Organisms.Commands;
+﻿namespace UniquomeApp.Application.Organisms.Commands;
 
     // public class CreateOrganismCommandValidator : AbstractValidator<CreateOrganismCommand>
     // {

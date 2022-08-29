@@ -1,4 +1,3 @@
-using Microsoft.Extensions.Configuration;
 using NodaTime;
 using NodaTime.Serialization.SystemTextJson;
 using UniquomeApp.Application;

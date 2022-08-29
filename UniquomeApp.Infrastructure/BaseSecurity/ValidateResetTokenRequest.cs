@@ -1,10 +1,9 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace UniquomeApp.Infrastructure.BaseSecurity
+namespace UniquomeApp.Infrastructure.BaseSecurity;
+
+public class ValidateResetTokenRequest
 {
-    public class ValidateResetTokenRequest
-    {
-        [Required]
-        public string Token { get; set; }
-    }
+    [Required]
+    public string Token { get; set; }
 }

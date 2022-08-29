@@ -1,8 +1,7 @@
-﻿namespace UniquomeApp.Application.Behaviours
+﻿namespace UniquomeApp.Application.Behaviours;
+
+public interface IUniquomeAuthorizationService
 {
-    public interface IUniquomeAuthorizationService
-    {
-        Task<bool> AuthorizeAsync(string userId, string policy);
-        Task<bool> IsInRoleAsync(string userId, string role);
-    }
+    Task<bool> AuthorizeAsync(string userId, string policy);
+    Task<bool> IsInRoleAsync(string userId, string role);
 }

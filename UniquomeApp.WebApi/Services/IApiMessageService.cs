@@ -1,7 +1,6 @@
-﻿namespace UniquomeApp.WebApi.Services
+﻿namespace UniquomeApp.WebApi.Services;
+
+public interface IApiMessageService
 {
-    public interface IApiMessageService
-    {
-        public string GetMessage(string messageName);
-    }
+    public string GetMessage(string messageName);
 }

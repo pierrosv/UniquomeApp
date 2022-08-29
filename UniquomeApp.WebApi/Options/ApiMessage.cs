@@ -1,8 +1,7 @@
-﻿namespace UniquomeApp.WebApi.Options
+﻿namespace UniquomeApp.WebApi.Options;
+
+public class ApiMessage
 {
-    public class ApiMessage
-    {
-        public string Name { get; set; }
-        public string Message { get; set; }
-    }
+    public string Name { get; set; }
+    public string Message { get; set; }
 }

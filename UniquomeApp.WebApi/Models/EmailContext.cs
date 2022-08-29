@@ -1,9 +1,8 @@
-﻿namespace UniquomeApp.WebApi.Models
+﻿namespace UniquomeApp.WebApi.Models;
+
+public class EmailContext
 {
-    public class EmailContext
-    {
-        public string Name { get; set; }
-        public string Subject { get; set; }
-        public string Body { get; set; }
-    }
+    public string Name { get; set; }
+    public string Subject { get; set; }
+    public string Body { get; set; }
 }
