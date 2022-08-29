@@ -6,24 +6,24 @@ using UniquomeApp.Domain;
 
 namespace UniquomeApp.Application.ApplicationUsers.Commands;
 
-public class CreateOrganismCommand : IRequest<long>, IMapTo<Organism>
+public class CreateApplicationUserCommand : IRequest<long>, IMapTo<ApplicationUser>
 {
     public string Name { get; set; } = default!;
     public string Description { get; set; } = default!;
-    internal class CreateOrganismHandler : IRequestHandler<CreateOrganismCommand, long>
+    internal class CreateApplicationUserHandler : IRequestHandler<CreateApplicationUserCommand, long>
     {
-        private readonly IRepositoryBase<Organism> _repo;
+        private readonly IRepositoryBase<ApplicationUser> _repo;
         private readonly IMapper _mapper;
             
-        public CreateOrganismHandler(IRepositoryBase<Organism> repo, IMapper mapper)
+        public CreateApplicationUserHandler(IRepositoryBase<ApplicationUser> repo, IMapper mapper)
         {
             _repo = repo;
             _mapper = mapper;
         }
 
-        public async Task<long> Handle(CreateOrganismCommand request, CancellationToken cancellationToken)
+        public async Task<long> Handle(CreateApplicationUserCommand request, CancellationToken cancellationToken)
         {
-            var entity = _mapper.Map<Organism>(request);
+            var entity = _mapper.Map<ApplicationUser>(request);
             await _repo.AddAsync(entity, cancellationToken);
             return entity.Id;
         }

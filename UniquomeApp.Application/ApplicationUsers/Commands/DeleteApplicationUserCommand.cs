@@ -4,26 +4,26 @@ using UniquomeApp.Domain;
 
 namespace UniquomeApp.Application.ApplicationUsers.Commands;
 
-public class DeleteOrganismCommand: IRequest
+public class DeleteApplicationUserCommand: IRequest
 {
     //TODO: Add Validator for deletion
     public int Id { get; set; }
 
-    public DeleteOrganismCommand(int id)
+    public DeleteApplicationUserCommand(int id)
     {
         Id = id;
     }
 
-    internal class DeleteOrganismHandler : IRequestHandler<DeleteOrganismCommand>
+    internal class DeleteApplicationUserHandler : IRequestHandler<DeleteApplicationUserCommand>
     {
-        private readonly IRepositoryBase<Organism> _repo;
+        private readonly IRepositoryBase<ApplicationUser> _repo;
 
-        public DeleteOrganismHandler(IRepositoryBase<Organism> repo)
+        public DeleteApplicationUserHandler(IRepositoryBase<ApplicationUser> repo)
         {
             _repo = repo;
         }
 
-        public async Task<Unit> Handle(DeleteOrganismCommand request, CancellationToken cancellationToken)
+        public async Task<Unit> Handle(DeleteApplicationUserCommand request, CancellationToken cancellationToken)
         {
             var entity = await _repo.GetByIdAsync(request.Id, cancellationToken);
             if (entity == null)

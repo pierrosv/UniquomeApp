@@ -20,6 +20,24 @@ public static class ApiRoutesV1
         public const string ReleaseVersion = Base + "/" + Local + "/version";
         public const string ChangeHangfireJob = Base + "/" + Local + "/change-hg-job";
     }
+    public static class Identity
+    {
+        private const string Local = "identity";
+        public const string Login = Base + "/" + Local + "/login";
+        public const string RefreshToken = Base + "/" + Local + "/refresh-token";
+        public const string RevokeToken = Base + "/" + Local + "/revoke-token";
+        public const string VerifyEmail = Base + "/" + Local + "/verify-email";
+        public const string ForgotPassword = Base + "/" + Local + "/forgot-password/{email}";
+        public const string ChangeLostPassword = Base + "/" + Local + "/change-lost-password";
+        public const string ChangePassword = Base + "/" + Local + "/change-password";
+        public const string ValidateResetToken = Base + "/" + Local + "/validate-reset-token";
+        public const string RegisterSecretariat = Base + "/" + Local + "/register-secretary";
+        public const string RegisterAdmin = Base + "/" + Local + "/register-admin";
+        public const string RegisterScientificDirector = Base + "/" + Local + "/register-scientific-director";
+        public const string RegisterCooperator = Base + "/" + Local + "/register-cooperator";
+        public const string RegisterCommitteeMember = Base + "/" + Local + "/register-committee-member";
+    }
+
     public static class Aux
     {
         private const string Local = "aux";

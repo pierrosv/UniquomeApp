@@ -19,7 +19,7 @@ public interface IAsyncRepository<TEntity, TKey> : IRepositoryBase<TEntity>
     // Task<bool> UpdateAsync(TEntity entityToUpdate, CancellationToken cancellationToken = default);
     // Task<bool> CreateAsync(TEntity entity, CancellationToken cancellationToken = default);
     // Task<IList<TEntity>> ListAsync(ISpecification<TEntity> spec, bool readOnly = true, CancellationToken cancellationToken = default);
-    // Task<TEntity> GetAsync(ISpecification<TEntity> spec, CancellationToken cancellationToken = default);
+     Task<TEntity> GetAsync(ISpecification<TEntity> spec, CancellationToken cancellationToken = default);
     // Task<int> CountAsync(ISpecification<TEntity> spec);
     //
     // IQueryable<TEntity> GetQueryable(ISpecification<TEntity> spec, bool readOnly = true);

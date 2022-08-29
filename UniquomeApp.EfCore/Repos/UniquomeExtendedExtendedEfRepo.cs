@@ -99,6 +99,12 @@ public class UniquomeExtendedExtendedEfRepo<TEntity> :
         return entities.Count;
     }
 
+    public Task<TEntity> GetAsync(ISpecification<TEntity> spec, CancellationToken cancellationToken = default)
+    {
+        //TODO: Implement
+        throw new NotImplementedException();
+    }
+
     public async Task<TEntity?> GetByIdAsync(long id, CancellationToken cancellationToken = default)
     {
         return await base.GetByIdAsync(id, cancellationToken);

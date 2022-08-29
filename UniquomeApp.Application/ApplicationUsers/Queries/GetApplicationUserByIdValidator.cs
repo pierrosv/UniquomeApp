@@ -3,9 +3,9 @@ using UniquomeApp.SharedKernel;
 
 namespace UniquomeApp.Application.ApplicationUsers.Queries;
 
-public class GetOrganismByIdValidator : AbstractValidator<GetOrganismDetailQuery>
+public class GetApplicationUserByIdValidator : AbstractValidator<GetApplicationUserDetailQuery>
 {
-    public GetOrganismByIdValidator()
+    public GetApplicationUserByIdValidator()
     {
         RuleFor(x => x.Id)
             .NotEmpty().WithMessage(CoreMessages.RequiredField)

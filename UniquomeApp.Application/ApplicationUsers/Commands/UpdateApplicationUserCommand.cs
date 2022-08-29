@@ -7,23 +7,23 @@ using UniquomeApp.Domain;
 
 namespace UniquomeApp.Application.ApplicationUsers.Commands;
 
-public class UpdateOrganismCommand: IRequest, IMapTo<Organism>
+public class UpdateApplicationUserCommand: IRequest, IMapTo<ApplicationUser>
 {
     public int Id { get; set; }
     public string Name { get; set; } = default!;
     public string Description { get; set; } = default!;
-    internal class UpdateOrganismHandler : IRequestHandler<UpdateOrganismCommand>
+    internal class UpdateApplicationUserHandler : IRequestHandler<UpdateApplicationUserCommand>
     {
-        private readonly IRepositoryBase<Organism> _repo;
+        private readonly IRepositoryBase<ApplicationUser> _repo;
         private readonly IMapper _mapper;
 
-        public UpdateOrganismHandler(IRepositoryBase<Organism> repo, IMapper mapper)
+        public UpdateApplicationUserHandler(IRepositoryBase<ApplicationUser> repo, IMapper mapper)
         {
             _repo = repo;
             _mapper = mapper;
         }
 
-        public async Task<Unit> Handle(UpdateOrganismCommand request, CancellationToken cancellationToken)
+        public async Task<Unit> Handle(UpdateApplicationUserCommand request, CancellationToken cancellationToken)
         {
             var entity = await _repo.GetByIdAsync(request.Id, cancellationToken);
             if (entity == null)
