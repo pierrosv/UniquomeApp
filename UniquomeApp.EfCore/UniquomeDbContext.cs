@@ -6,15 +6,15 @@ using UniquomeApp.EfCore.Configurations;
 
 namespace UniquomeApp.EfCore;
 
-public class AisDbContext: DbContext
+public class UniquomeDbContext: DbContext
 {
     private readonly Guid _currentContext = Guid.NewGuid();
-    public AisDbContext()
+    public UniquomeDbContext()
     {
         // Console.WriteLine($"Created Context {_currentContext}");
     }
 
-    public AisDbContext(DbContextOptions options) : base(options)
+    public UniquomeDbContext(DbContextOptions options) : base(options)
     {
         // Console.WriteLine($"Created Context {_currentContext}");
     }
@@ -26,7 +26,7 @@ public class AisDbContext: DbContext
             throw new Exception("Why am I here !");
         }
         
-        // Console.WriteLine($"AIS Context: {_currentContext}");
+        // Console.WriteLine($"Uniquome Context: {_currentContext}");
         optionsBuilder.EnableSensitiveDataLogging();
         optionsBuilder.EnableDetailedErrors();
         // optionsBuilder.UseLoggerFactory(MyLoggerFactory);
@@ -56,8 +56,8 @@ public class AisDbContext: DbContext
     public override Task<int> SaveChangesAsync(CancellationToken cancellationToken)
     {
 #if DEBUG
-        Console.WriteLine($"AIS Context: {_currentContext} Added: {ChangeTracker.Entries().Count(x => x.State == EntityState.Added)} Unchanged: {ChangeTracker.Entries().Count(x => x.State == EntityState.Unchanged)} Modified: {ChangeTracker.Entries().Count(x => x.State == EntityState.Modified)} Detached: {ChangeTracker.Entries().Count(x => x.State == EntityState.Detached)}");
-        // Console.WriteLine($"AIS Context: {_currentContext} Saving Entries: {ChangeTracker.Entries().Count()} Total Positions {Set<AisEntity>().Count():N0} Total Ships {Set<SimpleEntity>().Count()}");
+        Console.WriteLine($"Uniquome Context: {_currentContext} Added: {ChangeTracker.Entries().Count(x => x.State == EntityState.Added)} Unchanged: {ChangeTracker.Entries().Count(x => x.State == EntityState.Unchanged)} Modified: {ChangeTracker.Entries().Count(x => x.State == EntityState.Modified)} Detached: {ChangeTracker.Entries().Count(x => x.State == EntityState.Detached)}");
+        // Console.WriteLine($"Uniquome Context: {_currentContext} Saving Entries: {ChangeTracker.Entries().Count()} Total Positions {Set<UniquomeEntity>().Count():N0} Total Ships {Set<SimpleEntity>().Count()}");
 #endif
 
         //TODO: Decide whether to implement or not a logical/physical deletion structure

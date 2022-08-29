@@ -7,13 +7,13 @@ using UniquomeApp.SharedKernel.DomainCore;
 
 namespace UniquomeApp.EfCore.Repos;
 
-public class AisExtendedExtendedEfRepo<TEntity> :
+public class UniquomeExtendedExtendedEfRepo<TEntity> :
     RepositoryBase<TEntity>,
-    IAisExtendedRepository<TEntity> where TEntity : DomainRootEntity<long>
+    IUniquomeExtendedRepository<TEntity> where TEntity : DomainRootEntity<long>
 {
-    protected readonly AisDbContext DbContext;
+    protected readonly UniquomeDbContext DbContext;
 
-    public AisExtendedExtendedEfRepo(AisDbContext context) : base(context)
+    public UniquomeExtendedExtendedEfRepo(UniquomeDbContext context) : base(context)
     {
         DbContext = context;
     }

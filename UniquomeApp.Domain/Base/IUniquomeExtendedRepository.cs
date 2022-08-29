@@ -3,7 +3,7 @@ using UniquomeApp.SharedKernel.DomainCore;
 
 namespace UniquomeApp.Domain.Base;
 
-public interface IAisExtendedRepository<TEntity> :  
+public interface IUniquomeExtendedRepository<TEntity> :  
     IAsyncRepository<TEntity, long>
     where TEntity : DomainRootEntity<long>
 {

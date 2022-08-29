@@ -5,9 +5,9 @@ using UniquomeApp.SharedKernel.DomainCore;
 
 namespace UniquomeApp.EfCore.Repos;
 
-public class AisRepoFactory : IAisRepoFactory
+public class UniquomeRepoFactory : IUniquomeRepoFactory
 {
-    public IAisExtendedRepository<TEntity> GetRepository<TEntity>() where TEntity : DomainRootEntity<long>
+    public IUniquomeExtendedRepository<TEntity> GetRepository<TEntity>() where TEntity : DomainRootEntity<long>
     {
         var optionsBuilder = new DbContextOptionsBuilder();
         optionsBuilder.UseNpgsql(EfCache.ConnectionOptions.ConnectionString, x =>
@@ -16,8 +16,8 @@ public class AisRepoFactory : IAisRepoFactory
             x.UseNodaTime();
         });
 
-        var db = new AisDbContext(optionsBuilder.Options);
-        return new AisExtendedExtendedEfRepo<TEntity>(db);
+        var db = new UniquomeDbContext(optionsBuilder.Options);
+        return new UniquomeExtendedExtendedEfRepo<TEntity>(db);
     }
 
     // public IVesselPositionRepo GetVesselPositionRepo()
@@ -29,7 +29,7 @@ public class AisRepoFactory : IAisRepoFactory
     //         x.UseNetTopologySuite();
     //     });
     //
-    //     var db = new AisDbContext(optionsBuilder.Options);
+    //     var db = new UniquomeDbContext(optionsBuilder.Options);
     //     return new EfVesselPositionRepo(db);
     // }
 }

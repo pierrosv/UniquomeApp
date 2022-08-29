@@ -25,7 +25,7 @@ public static class DependencyInjection
         switch (dbOptions.DbProvider)
         {
             case "Postgresql":
-                services.AddDbContext<AisDbContext, AisDbContext>(options =>
+                services.AddDbContext<UniquomeDbContext, UniquomeDbContext>(options =>
                 {
                     options.UseNpgsql(dbOptions.ConnectionString, x =>
                     {
@@ -39,9 +39,9 @@ public static class DependencyInjection
         }
 
         //TODO: Reverting IRepositoryBase from Transient to Scoped was done in order to support complex commands like imports where multiple Repos were needed. The introduction of RepoFactory may have solved that and Repo can return to be a transient entity
-        services.AddScoped(typeof(IRepositoryBase<>), typeof(AisEfBaseRepo<>));
-        services.AddScoped(typeof(IAisExtendedRepository<>), typeof(AisExtendedExtendedEfRepo<>));
-        // services.AddSingleton(typeof(IAisRepoFactory), typeof(AisRepoFactory));
+        services.AddScoped(typeof(IRepositoryBase<>), typeof(UniquomeEfBaseRepo<>));
+        services.AddScoped(typeof(IUniquomeExtendedRepository<>), typeof(UniquomeExtendedExtendedEfRepo<>));
+        // services.AddSingleton(typeof(IUniquomeRepoFactory), typeof(UniquomeRepoFactory));
         return services;
     }
 }

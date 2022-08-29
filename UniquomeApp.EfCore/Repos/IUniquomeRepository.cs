@@ -3,7 +3,7 @@ using UniquomeApp.Domain.Base;
 
 namespace UniquomeApp.EfCore.Repos;
 
-public interface IUniquomeRepository : IAisExtendedRepository<Uniquome>
+public interface IUniquomeRepository : IUniquomeExtendedRepository<Uniquome>
 {
 
 }

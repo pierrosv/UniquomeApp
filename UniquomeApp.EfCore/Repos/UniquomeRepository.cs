@@ -2,9 +2,9 @@
 
 namespace UniquomeApp.EfCore.Repos
 {
-    public class UniquomeRepository : AisExtendedExtendedEfRepo<Uniquome>, IUniquomeRepository
+    public class UniquomeRepository : UniquomeExtendedExtendedEfRepo<Uniquome>, IUniquomeRepository
     {
-        public UniquomeRepository(AisDbContext context) : base(context)
+        public UniquomeRepository(UniquomeDbContext context) : base(context)
         {
         }
     }

@@ -3,8 +3,8 @@ using UniquomeApp.SharedKernel.DomainCore;
 
 namespace UniquomeApp.Application;
 
-public interface IAisRepoFactory
+public interface IUniquomeRepoFactory
 {
-    IAisExtendedRepository<TEntity> GetRepository<TEntity>() where TEntity : DomainRootEntity<long>;
+    IUniquomeExtendedRepository<TEntity> GetRepository<TEntity>() where TEntity : DomainRootEntity<long>;
     // IVesselPositionRepo GetVesselPositionRepo();
 }
