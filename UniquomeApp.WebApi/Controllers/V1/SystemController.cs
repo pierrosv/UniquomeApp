@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using UniquomeApp.Application.Proteomes.Commands;
 using UniquomeApp.Infrastructure.Security;
 
 namespace UniquomeApp.WebApi.Controllers.V1;
@@ -22,10 +23,18 @@ public class SystemController : BaseApiController
     }
 
     [AllowAnonymous]
-    [HttpPost("initializeidentity")]
-    public async Task<ActionResult> InitializeIdentity()
+    [HttpPost(ApiRoutesV1.System.SeedIdentity)]
+    public async Task<ActionResult> SeedIdentity()
     {
         await AppIdentityDbContextSeed.SeedAsync(_serviceProvider);
+        return Ok();
+    }
+
+    [AllowAnonymous]
+    [HttpPost(ApiRoutesV1.System.LoadProteomes)]
+    public async Task<ActionResult> LoadProteomes([FromBody] LoadProteomesCommand command)
+    {
+        await Mediator.Send(command);
         return Ok();
     }
 }

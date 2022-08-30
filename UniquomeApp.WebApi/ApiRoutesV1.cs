@@ -19,7 +19,7 @@ public static class ApiRoutesV1
         private const string Local = "system";
         public const string ReleaseVersion = Base + "/" + Local + "/version";
         public const string SeedIdentity = Base + "/" + Local + "/seed-identity";
-        public const string ChangeHangfireJob = Base + "/" + Local + "/change-hg-job";
+        public const string LoadProteomes = Base + "/" + Local + "/load-proteomes";
     }
     public static class Identity
     {
