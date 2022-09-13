@@ -42,7 +42,7 @@ public class UniquomeDbContext: DbContext
 
         //TODO: Change that
         #if DEBUG
-         connectionString = "Server=192.168.1.39;port=5432;Database=uniquome;Username=bill;Password=Ikaros23@;Timeout=1024;Command Timeout=0"; // Local Timescale
+         connectionString = "Server=192.168.254.128;port=5432;Database=uniquome;Username=bill;Password=Ikaros23@;Timeout=1024;Command Timeout=0"; // Local Timescale
         #endif
         optionsBuilder.UseNpgsql(connectionString, x =>
         {

@@ -67,7 +67,12 @@ public class LoadProteomesCommand : IRequest<long>, IMapTo<Proteome>
                 Console.WriteLine($"Fasta File: {fastaFile}");
                 var uniquomeFile = $"{request.FolderName}/{Path.GetFileNameWithoutExtension(fastaFile)}.uniquome";
                 if (File.Exists(uniquomeFile))
+                {
                     Console.WriteLine("Uniquome OK");
+
+
+                }
+             
                 else
                     Console.WriteLine("Uniquome Failed");
 
